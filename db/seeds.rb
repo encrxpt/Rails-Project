@@ -7,10 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
+Book.destroy_all
 Publisher.destroy_all
 Author.destroy_all
 Genre.destroy_all
-Book.destroy_all
+
 
 30.times do
   @author = Author.create(
