@@ -5,10 +5,10 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <li class="nav-item">
             <a class="nav-link" href="/">Home </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item active">
             <a class="nav-link" href="/books/">Books<span class="sr-only">(current)</span></a>
       </li>
        <li class="nav-item ">
@@ -21,8 +21,8 @@
             <a class="nav-link " href="/publishers/" >Publishers</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search for books, authors, genres, or publishers" aria-label="Search">
+    <form class="form-inline my-2 my-lg-0" method="get" accept-charset="UTF-8" action="/books">
+      <input class="form-control mr-sm-2" name="title" id="title" type="search" placeholder="Search for books" aria-label="Search">
       <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
@@ -59,17 +59,24 @@
                   <hr class="my-4">
                   <p class="lead">Publisher:</p>
                     <p class="card-text"><%= book.publisher.name %></p>
-                    <a href="/"  class="btn btn-primary active" role="button" aria-pressed="true">Back to home</a>
+
                 </div>
             </div>
+
         <% end %>
+        <div class="row justify-content-md-center">
+        <div class="col-md-auto">
+          <br/>
+          <a href="/books"  class="btn btn-primary active" role="button" aria-pressed="true">Back to top</a>
+          <br/>
+          <br/>
+        </div>
+    </div>
+
      <% end %>
 
   </div>
-   <div class="row col-md-12 mt-5">
+   <%# <div class="row col-md-12 mt-5">
         <div class="col-md-2">
 
-        <div class="col-md-4">
-        <%== pagy_bootstrap_nav(@pagy)%>
-        </div>
-  </div>
+  </div> %>

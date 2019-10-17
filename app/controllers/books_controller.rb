@@ -2,7 +2,7 @@ class BooksController < ApplicationController
 
   def index
     @pagy, @books = if params[:title]
-                      pagy(Book.where('name LIKE ?', "%#{params[:title]}%"), items: 10)
+                      pagy(Book.where('title LIKE ?', "%#{params[:title]}%"), items: 10)
                     else
                       pagy(Book.all, items: 10)
     end
