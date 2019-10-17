@@ -1,0 +1,76 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="/">Books</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+            <a class="nav-link" href="/">Home </a>
+      </li>
+      <li class="nav-item">
+            <a class="nav-link" href="/books/">Books<span class="sr-only">(current)</span></a>
+      </li>
+       <li class="nav-item active">
+            <a class="nav-link" href="/authors/">Authors</a>
+      </li>
+      <li class="nav-item">
+            <a class="nav-link " href="/genres/" >Genres</a>
+      </li>
+      <li class="nav-item">
+            <a class="nav-link " href="/publishers/" >Publishers</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search for books, authors, genres, or publishers" aria-label="Search">
+      <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+<div class="container-fluid" >
+  <div class="row col-md-12 mt-5">
+        <div class="col-md-8">
+        </div>
+
+        <div class="col-md-4">
+        <%== pagy_bootstrap_nav(@pagy)%>
+        </div>
+
+  </div>
+
+  <% if @authors.count == 0 %>
+     <div class="row justify-content-md-center">
+        <div class="col-md-auto">
+          <p class="lead text-danger">Sorry, there are no author(s) found.</p>
+        </div>
+    </div>
+
+    <% else %>
+
+      <% @authors.each do |author| %>
+            <div class="card" style="width: 700px;" >
+
+                <div class="card-body">
+                  <h5 class="card-title"><%= author.name %></h5>
+                  <p ><span class="lead">Book(s):</span>
+                  <% if author.books.count.zero? %>
+                    <p> This author has no books written. </p>
+                  <% else %>
+                    <% author.books.each do  | book | %>
+                        <%= book.title %>,
+                    <% end %> </p>
+                  <%end%>
+                    <a href="/"  class="btn btn-primary active" role="button" aria-pressed="true">Back to home</a>
+                </div>
+            </div>
+        <% end %>
+     <% end %>
+
+  </div>
+   <div class="row col-md-12 mt-5">
+        <div class="col-md-2">
+
+        <div class="col-md-4">
+        <%== pagy_bootstrap_nav(@pagy)%>
+        </div>
+  </div>
