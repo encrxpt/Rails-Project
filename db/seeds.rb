@@ -18,26 +18,28 @@ Genre.destroy_all
     name: Faker::Book.author
   )
 
-  @genre = Genre.create(
-    name: Faker::Book.genre
-  )
-
   @publisher = Publisher.create(
     name: Faker::Book.publisher
   )
+end
 
-  rand(15..30).times do
-    a = Author.all.sample
-    g = Genre.all.sample
-    publisher = Publisher.all.sample
-    @book = Book.create(
-      title: Faker::Book.title,
-      published: Faker::Time.backward(days: rand(30..800)),
-      author: a,
-      genre: g,
-      publisher: publisher
-    )
-  end
+20.times do
+  @genre = Genre.create(
+    name: Faker::Book.genre
+  )
+end
+
+170..200.times do
+  a = Author.all.sample
+  g = Genre.all.sample
+  publisher = Publisher.all.sample
+  @book = Book.create(
+    title: Faker::Book.title,
+    published: Faker::Time.backward(days: rand(30..800)),
+    author: a,
+    genre: g,
+    publisher: publisher
+  )
 end
 
 puts "Generated #{Author.count} authors"
