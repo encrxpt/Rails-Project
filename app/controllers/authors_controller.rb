@@ -13,8 +13,8 @@ class AuthorsController < ApplicationController
 
   private
 
-  def books_params
-    params.require(:authors).permit(:id, :title)
+  def author_params
+    params.require(:authors).permit(:id, :name)
   end
 
 end

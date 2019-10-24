@@ -60,9 +60,14 @@
                         <%= link_to book.title, book %>,
                     <% end %> </p>
                   <%end%>
+                  <p class="lead">Publisher(s):
+                  <% author.books.each do | books| %>
+                    <%= link_to books.genre.name, books.genre%>
+                    <%end%>
                 </div>
             </div>
         <% end %>
+
      <div class="row justify-content-md-center">
         <div class="col-md-auto">
           <br/>

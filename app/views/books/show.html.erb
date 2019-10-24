@@ -34,7 +34,7 @@
                   <p class="lead">Author: <%= link_to @book.author.name, @book.author %></p>
                   <p class="lead">Genre: <%= link_to @book.genre.name, @book.genre %></p>
                   <hr class="my-4">
-                  <p class="lead">Publisher: <%= @book.publisher.name %></p>
+                  <p class="lead">Publisher: <%= link_to @book.publisher.name, @book.publisher %></p>
                 </div>
               </div>
         <div class="row justify-content-md-center">
