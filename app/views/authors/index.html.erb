@@ -9,10 +9,10 @@
             <a class="nav-link" href="/">Home </a>
       </li>
       <li class="nav-item">
-            <a class="nav-link" href="/books/">Books<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="/books/">Books</a>
       </li>
        <li class="nav-item active">
-            <a class="nav-link" href="/authors/">Authors</a>
+            <a class="nav-link" href="/authors/">Authors<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
             <a class="nav-link " href="/genres/" >Genres</a>
@@ -60,17 +60,19 @@
                         <%= book.title %>,
                     <% end %> </p>
                   <%end%>
-                    <a href="/"  class="btn btn-primary active" role="button" aria-pressed="true">Back to home</a>
                 </div>
             </div>
         <% end %>
+     <div class="row justify-content-md-center">
+        <div class="col-md-auto">
+          <br/>
+          <a href="/books"  class="btn btn-primary active" role="button" aria-pressed="true">Back to top</a>
+          <br/>
+          <br/>
+        </div>
+    </div>
+
      <% end %>
 
   </div>
-   <div class="row col-md-12 mt-5">
-        <div class="col-md-2">
 
-        <div class="col-md-4">
-        <%== pagy_bootstrap_nav(@pagy)%>
-        </div>
-  </div>
