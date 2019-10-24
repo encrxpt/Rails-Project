@@ -23,7 +23,7 @@ Genre.destroy_all
   )
 end
 
-20.times do
+10.times do
   @genre = Genre.create(
     name: Faker::Book.genre
   )
