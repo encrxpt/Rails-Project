@@ -51,14 +51,12 @@
             <div class="card" style="width: 700px;" >
 
                 <div class="card-body">
-                  <h5 class="card-title"><%= book.title %></h5>
-                  <p ><span class="lead">Author:</span>  <%= link_to book.author.name, book %></p>
+                  <h5 class="card-title"><%= link_to book.title, book %></h5>
+                  <p class="lead">Author: <%= link_to book.author.name, book.author %></p>
 
-                  <p class="lead">Published Date:</p>
-                  <p class="lead"> <%= book.published %></p>
+                  <p class="lead">Genre: <%= link_to book.genre.name, book.genre %></p>
                   <hr class="my-4">
-                  <p class="lead">Publisher:</p>
-                    <p class="card-text"><%= book.publisher.name %></p>
+                  <p class="lead">Publisher: <%= book.publisher.name %></p>
 
                 </div>
             </div>

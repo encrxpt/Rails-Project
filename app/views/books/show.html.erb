@@ -31,7 +31,7 @@
             <div class="card" style="width: 700px;" >
                 <div class="card-body">
                   <h5 class="card-title"><%= @book.title %></h5>
-                  <p ><span class="lead">Author:</span>  <%= @book.author.name %></p>
+                  <p ><span class="lead">Author:</span>  <%= link_to @book.author.name, @book.author %></p>
 
                   <p class="lead">Published Date:</p>
                   <p class="lead"> <%= @book.published %></p>
