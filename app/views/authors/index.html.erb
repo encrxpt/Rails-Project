@@ -57,7 +57,7 @@
                     <p> This author has no books written. </p>
                   <% else %>
                     <% author.books.each do  | book | %>
-                        <%= book.title %>,
+                        <%= link_to book.title, book %>,
                     <% end %> </p>
                   <%end%>
                 </div>
