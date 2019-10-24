@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="/">Books</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+            <a class="nav-link" href="/">Home </a>
+      </li>
+      <li class="nav-item">
+            <a class="nav-link" href="/books/">Books</a>
+      </li>
+       <li class="nav-item ">
+            <a class="nav-link" href="/authors/">Authors</a>
+      </li>
+      <li class="nav-item">
+            <a class="nav-link " href="/genres/" >Genres</a>
+      </li>
+      <li class="nav-item active">
+            <a class="nav-link " href="/publishers/" >Publishers<span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0" method="get" accept-charset="UTF-8" action="/publishers">
+      <input class="form-control mr-sm-2" name="name" id="name" type="search" placeholder="Search for a publisher" aria-label="Search">
+      <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+<div class="container-fluid" >
+  <div class="row col-md-12 mt-5">
+    <div class="col-md-8">
+    </div>
+
+    <div class="col-md-4">
+      <%== pagy_bootstrap_nav(@pagy)%>
+    </div>
+
+</div>
+  <% @publisher.each do |publisher| %>
+    <div class="card" style="width: 700px;" >
+      <div class="card-body">
+        <h5 class="card-title"><%= publisher.name %></h5>
+          <p class="lead">Author(s):
+            <% publisher.books.each do |books|%>
+              <%= link_to books.author.name, books.author%>
+            <%end%> </p>
+          <p class="lead">Book(s):
+            <%publisher.books.each do |book|%>
+              <%= link_to book.title, book %>,
+          <% end %></p>
+        </div>
+      </div>
+  <% end %>
+
+<div class="row justify-content-md-center">
+  <div class="col-md-auto">
+    <br/>
+    <a href="/publishers"  class="btn btn-primary active" role="button" aria-pressed="true">Back to top</a>
+    <br/>
+    <br/>
+  </div>
+</div>
